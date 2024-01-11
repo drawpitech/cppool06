@@ -46,7 +46,7 @@ void Assistant::helpStudent(Student *student) {
         this->display(student->get_name() + " seems fine");
         return;
     }
-    student->drink(drink);
+    this->giveDrink(student, drink);
 }
 
 void Assistant::timeCheck() {
