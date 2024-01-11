@@ -8,7 +8,7 @@
 #include <fstream>
 #include <iostream>
 
-auto open_file(const std::string &filename) -> bool {
+bool open_file(const std::string &filename) {
     std::string buf;
     std::ifstream file(filename);
 
@@ -23,7 +23,7 @@ auto open_file(const std::string &filename) -> bool {
     return true;
 }
 
-auto get_stdin() -> void {
+void get_stdin() {
     std::string buf;
     while (getline(std::cin, buf))
         std::cout << buf << '\n';
@@ -36,6 +36,6 @@ auto main(int argc, char **argv) -> int {
     }
     bool res = true;
     for (int i = 1; i < argc; i++)
-        res |= open_file(argv[i]);
+        res = res && open_file(argv[i]);
     return (res) ? 0 : 84;
 }
