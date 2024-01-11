@@ -14,7 +14,7 @@ CXXFLAGS += -U_FORTIFY_SOURCE
 CXXFLAGS += -iquote ./.
 LDFLAGS :=
 
-NAME := z
+NAME := Z
 
 VPATH := .
 SRC := Z.cpp
