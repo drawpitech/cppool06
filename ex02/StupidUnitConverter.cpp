@@ -9,27 +9,26 @@
 #include <iostream>
 #include <sstream>
 
-auto celcuis_to_fahrenheit(double celcuis) -> double {
+double celcuis_to_fahrenheit(double celcuis) {
     return celcuis * 9.0 / 5.0 + 32;
 }
 
-auto fahrenheit_to_celcuis(double fahrenheit) -> double {
+double fahrenheit_to_celcuis(double fahrenheit) {
     return 5.0 / 9.0 * (fahrenheit - 32);
 }
 
-auto nice_output(double value, const std::string &unit) -> void {
+void nice_output(double value, const std::string &unit) {
     std::cout << std::setw(16) << std::right << std::fixed
               << std::setprecision(3) << value << std::setw(16) << std::right
               << unit << '\n';
 }
 
-auto handle_line(const std::string &buf) -> bool {
+bool handle_line(const std::string &buf) {
     std::istringstream str(buf);
-    std::string value;
     std::string unit;
+    double val = 0;
 
-    str >> value >> unit;
-    double val = std::stod(value);
+    str >> val >> unit;
 
     if (unit == "Celsius") {
         nice_output(celcuis_to_fahrenheit(val), "Fahrenheit");
@@ -43,7 +42,7 @@ auto handle_line(const std::string &buf) -> bool {
     return false;
 }
 
-auto main() -> int {
+int main() {
     bool res = true;
     std::string buf;
 
