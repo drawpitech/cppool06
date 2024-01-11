@@ -8,7 +8,7 @@
 #include "Student.hpp"
 
 Student::Student(std::string name) : name(std::move(name)) {
-    this->display(": I'm ready to learn C++.");
+    this->display("I'm ready to learn C++.");
 }
 
 Student::~Student() {
