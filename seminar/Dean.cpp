@@ -20,10 +20,11 @@ Dean::~Dean() { this->display("Time to go home."); }
 void Dean::teachStudent(Student *student, std::string lesson) {
     if (student == nullptr)
         return;
-    if (!student->learn(std::move(lesson)))
-        this->display("All work and no play makes " + student->get_name() +
-                      " a dull student .");
+    if (student->learn(std::move(lesson)))
+        return;
 
+    this->display("All work and no play makes " + student->get_name() +
+                  " a dull student.");
     std::vector<std::string> drinks = {
         "Cristaline", "Monster", "Evian", "Red Bull", "Sierra Springs",
     };
