@@ -7,6 +7,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <span>
 
 bool open_file(const std::string &filename) {
     std::string buf;
@@ -35,7 +36,9 @@ auto main(int argc, char **argv) -> int {
         return 0;
     }
     bool res = true;
-    for (int i = 1; i < argc; i++)
-        res = res && open_file(argv[i]);
+    std::span args(argv, argc);
+
+    for (const auto &elm : args.subspan(1))
+        res = open_file(elm) && res;
     return (res) ? 0 : 84;
 }
