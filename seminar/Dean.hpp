@@ -20,6 +20,7 @@ struct Dean {
 
     void teachStudent(Student *student, std::string lesson);
     void timeCheck();
+    std::string get_name() const { return this->name; }
 
   private:
     const std::string name;

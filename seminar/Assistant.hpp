@@ -22,6 +22,7 @@ struct Assistant {
     std::string readDrink(std::string student);
     void helpStudent(Student *student);
     void timeCheck();
+    unsigned long get_id() const { return this->id; }
 
   private:
     const unsigned long id;

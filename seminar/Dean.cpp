@@ -39,5 +39,5 @@ void Dean::timeCheck() {
         return;
     }
     this->isBusy = true;
-    this->display("Where is everyone ?");
+    this->display("Where is everyone?");
 }
